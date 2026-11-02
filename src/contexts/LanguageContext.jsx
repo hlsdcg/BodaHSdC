@@ -37,7 +37,7 @@ export const translations = {
       terms: 'Términos y Condiciones',
       dressCode: 'Código de vestimenta',
       greenAndWhite: 'por favor, evitad vestir verde y/o blanco como colores principales.',
-      noChildren: 'Los niños no boos acompañarán en esta ocuasión en la celebración. Si necesitáis de alguien que cuide de los pequeños, os podemos facilitar un número de contacto de confianza.',
+      noChildren: 'Los niños no nos acompañarán en esta ocasión en la celebración. Si necesitáis de alguien que cuide de los pequeños, os podemos facilitar un número de contacto de confianza.',
       noFlats: 'No se proporcionarán alpargatas para cambiar de calzado. Si queréis traer calzado cómodo para cambiaros, habrá un guardarropa disponible.',
       hotels: 'Hoteles',
       hotelsIntro: 'Para vuestra estancia en Fuenterrabía o San Sebastián, aquí tenéis una lista de hoteles que han acordado ofrecer descuentos para nuestros invitados durante vuestra estancia.',
