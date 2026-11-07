@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import LanguageIcon from './LanguageIcon';
 
 const Form = ({ setActiveTab, isMobileMenuOpen, setIsMobileMenuOpen, menuRef, language, setLanguage, t, isBeforeDeadline }) => {
@@ -7,6 +7,7 @@ const Form = ({ setActiveTab, isMobileMenuOpen, setIsMobileMenuOpen, menuRef, la
     setIsMobileMenuOpen(false);
   };
   const [isLoading, setIsLoading] = useState(false);
+  const [activeTooltip, setActiveTooltip] = useState(null);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -30,6 +31,40 @@ const Form = ({ setActiveTab, isMobileMenuOpen, setIsMobileMenuOpen, menuRef, la
       [name]: type === 'checkbox' ? checked : value
     }));
   };
+
+  const toggleTooltip = (tooltipId) => {
+    setActiveTooltip(activeTooltip === tooltipId ? null : tooltipId);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!event.target.closest('.tooltip-wrapper')) {
+        setActiveTooltip(null);
+      }
+    };
+
+    if (activeTooltip) {
+      document.addEventListener('click', handleClickOutside);
+      return () => document.removeEventListener('click', handleClickOutside);
+    }
+  }, [activeTooltip]);
+
+  const Tooltip = ({ text, tooltipId, children }) => (
+    <label className="tooltip-wrapper">
+      {children}
+      <span
+        className="tooltip-icon"
+        onClick={() => toggleTooltip(tooltipId)}
+      >
+        ?
+      </span>
+      {activeTooltip === tooltipId && (
+        <div className="tooltip-content" onClick={(e) => e.stopPropagation()}>
+          {text}
+        </div>
+      )}
+    </label>
+  );
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -144,12 +179,11 @@ const Form = ({ setActiveTab, isMobileMenuOpen, setIsMobileMenuOpen, menuRef, la
             required
           />
         </div>
-        
+
         <div className="form-group">
-          <label>
+          <Tooltip text={t('form.songTooltip')} tooltipId="song">
             {t('form.song')}
-            <span className="tooltip-icon" title={t('form.songTooltip')}>?</span>
-          </label>
+          </Tooltip>
           <input
             type="text"
             name="song"
@@ -157,7 +191,7 @@ const Form = ({ setActiveTab, isMobileMenuOpen, setIsMobileMenuOpen, menuRef, la
             onChange={handleChange}
           />
         </div>
-        
+
         <div className="form-group">
           <label>{t('form.allergies')}</label>
           <input
@@ -211,10 +245,9 @@ const Form = ({ setActiveTab, isMobileMenuOpen, setIsMobileMenuOpen, menuRef, la
             </div>
             
             <div className="form-group">
-              <label>
+              <Tooltip text={t('form.songTooltip')} tooltipId="guestSong">
                 {t('form.guestSong')}
-                <span className="tooltip-icon" title={t('form.songTooltip')}>?</span>
-              </label>
+              </Tooltip>
               <input
                 type="text"
                 name="guestSong"
@@ -293,10 +326,9 @@ const Form = ({ setActiveTab, isMobileMenuOpen, setIsMobileMenuOpen, menuRef, la
         )}
         
         <div className="form-group">
-          <label>
+          <Tooltip text={t('form.contactMethodTooltip')} tooltipId="contactMethod">
             {t('form.contactMethod')}
-            <span className="tooltip-icon" title={t('form.contactMethodTooltip')}>?</span>
-          </label>
+          </Tooltip>
           <input
             type="text"
             name="contactMethod"
