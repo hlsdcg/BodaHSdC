@@ -70,7 +70,7 @@ const AdditionalInfo = ({ isMobileMenuOpen, setIsMobileMenuOpen, menuRef, setAct
         <p>{t('additional.hotelsIntro')}</p>
         <h3>{t('additional.sanSebastianHotels')}</h3>
         <ul>
-          <li><a href="https://maps.app.goo.gl/x2WdTRMN4aVSL91B8" target="_blank" rel="noopener noreferrer">{t('additional.hotelInsideMelia')}</a>: {t('additional.detailsToBeConfirmed')}</li>
+          <li><a href="https://maps.app.goo.gl/x2WdTRMN4aVSL91B8" target="_blank" rel="noopener noreferrer">{t('additional.hotelInsideMelia')}</a>: {t('additional.hotelInsideMeliaDetails')}<p>{t('additional.hotelInsideMeliaContactInfo')}</p></li>
         </ul>
         <h3>{t('additional.fuenterrabiaHotels')}</h3>
         <ul>
