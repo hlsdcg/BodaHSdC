@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/BodaHSdC/static/css/main.f5c7ddc4.css",
-    "main.js": "/BodaHSdC/static/js/main.059cfd23.js",
+    "main.js": "/BodaHSdC/static/js/main.ce23b94b.js",
     "static/media/weddingHeader.jpeg": "/BodaHSdC/static/media/weddingHeader.7abcf4a11827d6bab07b.jpeg",
     "index.html": "/BodaHSdC/index.html",
     "main.f5c7ddc4.css.map": "/BodaHSdC/static/css/main.f5c7ddc4.css.map",
-    "main.059cfd23.js.map": "/BodaHSdC/static/js/main.059cfd23.js.map"
+    "main.ce23b94b.js.map": "/BodaHSdC/static/js/main.ce23b94b.js.map"
   },
   "entrypoints": [
     "static/css/main.f5c7ddc4.css",
-    "static/js/main.059cfd23.js"
+    "static/js/main.ce23b94b.js"
   ]
 }
